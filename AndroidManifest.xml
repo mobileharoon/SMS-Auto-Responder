@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<manifest android:versionName="1.0" android:versionCode="1" package="com.rabblesoft.smsresponder"
+xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="10" />-
+    <application android:label="Folio3 Auto Responder" android:icon="@drawable/ic_launcher">
+        <activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:label="Folio3 Auto Responder" android:name=".Splash" android:screenOrientation="portrait">
+                        <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>        
+        <activity android:label="Folio3 Auto Responder" android:name=".SmsresponderActivity" android:screenOrientation="portrait">
+
+        </activity>
+        <receiver android:name=".ServiceReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+            <receiver android:name=".SMSGET">
+        <intent-filter>
+            <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+        </intent-filter>
+    </receiver>
+    </application>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />    
+
+</manifest>
